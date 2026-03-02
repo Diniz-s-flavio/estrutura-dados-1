@@ -52,14 +52,62 @@ public class StaticList {
         lastIndex++;
     }
 
-    public void remove(int element){
+    public Object removeFirst(){
         if (isEmpty()){
             throw new RuntimeException("lista vazia não há nada a ser removido!");
         }
 
-        for (int i = firstIndex; i < lastIndex; i++) {
-            if
+        Object items = this.items[0];
+        this.lastIndex--;
 
+        for (int i = 0; i < this.lastIndex; i++) {
+            this.items[i] = this.items[i + 1];
         }
+
+        return items;
+    }
+
+    public Object removeLast(){
+        if (isEmpty()){
+            throw new RuntimeException("lista vazia não há nada a ser removido!");
+        }
+
+        Object items = this.items[this.lastIndex - 1];
+        this.lastIndex--;
+
+        return items;
+    }
+
+    public Object remove (Object key) throws Exception {
+        if (isEmpty() || key == null) {
+            throw new RuntimeException("lista vazia não há nada a ser removido!");
+        }
+        int p = 0;
+        while(p < lastIndex && !items[p].equals(key)) {
+            p++;
+        }
+        if (p == lastIndex) {
+            return null;
+        }
+        Object item = this.items[p];
+        this.lastIndex--;
+
+        for (int i = p; i < this.lastIndex; i++) {
+            this.items[i] = this.items[i + 1];
+        }
+
+        return item;
+    }
+
+    public Object search (Object key) {
+        if (isEmpty() || key == null) {
+            throw new RuntimeException("lista vazia não há nada a ser encontrado!");
+        }
+        for (int p = 0; p < lastIndex; p++) {
+            if (items[p].equals(key)) {
+                return items[p];
+            }
+        }
+        return null;
     }
 }
