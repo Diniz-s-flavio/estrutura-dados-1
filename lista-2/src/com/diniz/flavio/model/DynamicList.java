@@ -43,7 +43,7 @@ public class DynamicList {
     }
 
     public Object removeFirst() {
-        this.validateEmpty();
+        this.throwExceptionIfEmpty();
 
         Node current = this.head;
 
@@ -61,7 +61,7 @@ public class DynamicList {
     }
 
     public Object removeLast() {
-        this.validateEmpty();
+        this.throwExceptionIfEmpty();
 
         Object returnedItem = this.tail.getItem();
         Node current = this.head;
@@ -78,7 +78,7 @@ public class DynamicList {
 
 
     public Object remove(Object item) {
-        this.validateEmpty();
+        this.throwExceptionIfEmpty();
 
         Node current = this.head;
 
@@ -102,11 +102,22 @@ public class DynamicList {
     }
 
     public Object pesquisa (Object chave) {
-        this.validateEmpty();
+        this.throwExceptionIfEmpty();
         Node current = head;
         while (current.getNext() != null ) {
             if (current.getNext().getItem().equals(chave))
                 return current.getNext().getItem();
+            current = current.getNext();
+        }
+        return null;
+    }
+
+    public Node findNodeByKey (Object key) {
+        this.throwExceptionIfEmpty();
+        Node current = head;
+        while (current.getNext() != null ) {
+            if (current.getNext().getItem().equals(key))
+                return current.getNext();
             current = current.getNext();
         }
         return null;
@@ -124,11 +135,26 @@ public class DynamicList {
         return this.head == this.tail;
     }
 
-    public void validateEmpty() {
+    public void throwExceptionIfEmpty() {
         if (this.isEmpty()) {
             throw new IllegalStateException("A lista está vazia.");
         }
     }
 
 
+    public Node getHead() {
+        return head;
+    }
+
+    public void setHead(Node head) {
+        this.head = head;
+    }
+
+    public Node getTail() {
+        return tail;
+    }
+
+    public void setTail(Node tail) {
+        this.tail = tail;
+    }
 }
