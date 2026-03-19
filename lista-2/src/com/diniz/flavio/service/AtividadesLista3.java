@@ -5,31 +5,25 @@ import com.diniz.flavio.model.Node;
 
 public class AtividadesLista3 {
 
-    public DynamicList e6_changePositions(DynamicList list, Node item1, Node item2) {
-        list.throwExceptionIfEmpty();
+    public void testarExercicio6() {
+        DynamicList list = new DynamicList();
 
-        if (item1.equals(item2)) {
-            throw new IllegalArgumentException("Os itens devem ser diferentes.");
-        }
+        list.addLast(5);
+        list.addLast(12);
+        list.addLast(7);
+        list.addLast(19);
+        list.addLast(3);
+        list.addLast(15);
+        list.addLast(8);
+        list.addLast(1);
+        list.addLast(20);
+        list.addLast(10);
 
-        Node preItem1 = null;
-        Node postItem1 = item1.getNext();
-        Node preItem2 = null;
-        Node postItem2 = item2.getNext();
+        list.print();
 
-        Node current = list.getHead();
-        while (current.hasNext()) {
-            if (current.getNext().equals(item1)) {
-                preItem1 = current;
-            } else if (current.getNext().equals(item2)) {
-                preItem2 = current;
-            }
-            current = current.getNext();
-        }
+        list.e6_changePositions(list.findNodeByKey(5), list.findNodeByKey(15));
+        System.out.println("\n\nDepois de trocar as posições de 5 e 15:");
 
-        if (preItem1 == null || preItem2 == null) {
-            throw new IllegalArgumentException("Um ou ambos os itens náo foram encontrados.");
-        }
-        return list;
+        list.print();
     }
 }

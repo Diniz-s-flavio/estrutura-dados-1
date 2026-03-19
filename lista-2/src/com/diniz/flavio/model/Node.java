@@ -9,6 +9,11 @@ public class Node {
         this.next = null;
     }
 
+    public Node() {
+        this.item = null;
+        this.next = null;
+    }
+
     public Object getItem() {
         return item;
     }
@@ -31,6 +36,6 @@ public class Node {
     }
 
     public boolean hasNext() {
-        return this.next == null;
+        return this.next != null;
     }
 }

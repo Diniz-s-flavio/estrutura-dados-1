@@ -1,10 +1,10 @@
 package com.diniz.flavio.model;
 
-public class DoubleLinkedList {
+public class DynamicList2 {
     private Node2 head;
     private Node2 tail;
 
-    public DoubleLinkedList() {
+    public DynamicList2() {
         this.head = null;
         this.tail = this.head;
     }
