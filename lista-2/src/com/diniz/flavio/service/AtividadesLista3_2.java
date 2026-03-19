@@ -1,9 +1,8 @@
 package com.diniz.flavio.service;
 
 import com.diniz.flavio.model.DynamicList;
-import com.diniz.flavio.model.Node;
 
-public class AtividadesLista3 {
+public class AtividadesLista3_2 {
 
     public void testarExercicio6() {
         DynamicList list = new DynamicList();
