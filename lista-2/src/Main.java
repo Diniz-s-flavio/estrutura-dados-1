@@ -5,6 +5,7 @@ public class Main {
 
         AtividadesLista3 atividades = new AtividadesLista3();
 
-        atividades.testarExercicio6();
+//        atividades.testarExercicio6();
+        atividades.testarExercicio6_2();
     }
 }

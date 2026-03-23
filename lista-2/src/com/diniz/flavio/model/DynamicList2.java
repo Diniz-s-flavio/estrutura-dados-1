@@ -4,6 +4,22 @@ public class DynamicList2 {
     private Node2 head;
     private Node2 tail;
 
+    public Node2 getHead() {
+        return head;
+    }
+
+    public void setHead(Node2 head) {
+        this.head = head;
+    }
+
+    public Node2 getTail() {
+        return tail;
+    }
+
+    public void setTail(Node2 tail) {
+        this.tail = tail;
+    }
+
     public DynamicList2() {
         this.head = null;
         this.tail = this.head;
@@ -155,18 +171,23 @@ public class DynamicList2 {
     public Node2 findNodeByKey (Object key) {
         this.throwExceptionIfEmpty();
         Node2 current = head;
-        while (current.getNext() != null ) {
-            if (current.getNext().getItem().equals(key))
-                return current.getNext();
+        while (current.hasNext() ) {
+            if (current.getItem().equals(key))
+                return current;
+
             current = current.getNext();
         }
         return null;
     }
 
     public void print() {
+        if (this.isEmpty()){
+            System.out.println("A lista está vazia.");
+            return;
+        }
         Node2 current = this.head;
         while (current != null) {
-            System.out.println(current + (current.hasNext() ? ", ": ""));
+            System.out.print(current + (current.hasNext() ? ", ": ""));
             current = current.getNext();
         }
     }
@@ -181,20 +202,59 @@ public class DynamicList2 {
         }
     }
 
+    // Lista 3.2
 
-    public Node2 getHead() {
-        return head;
-    }
+    // E6 - Trocar as posições de dois itens na lista, sem alterar os itens em si, ou seja, apenas alterando os ponteiros.
+    public void changeNodesPosition(Node2 firstNode, Node2 secondNode){
+        this.throwExceptionIfEmpty();
 
-    public void setHead(Node2 head) {
-        this.head = head;
-    }
+        if (firstNode.equals(secondNode)) {
+            throw new IllegalArgumentException("Os itens devem ser diferentes.");
+        }
 
-    public Node2 getTail() {
-        return tail;
-    }
+        Node2 current = this.head;
+        Node2 secondNodePrev = secondNode.getPrevious();
+        Node2 secondNodeNext = secondNode.getNext();
+        do{
+            if (current.equals(firstNode)) {
+                Node2 aux = this.head;
+                do{
+                    if (aux.equals(secondNode)) {
+                        secondNode.setNext(firstNode.getNext());
+                        secondNode.setPrevious(firstNode.getPrevious());
+                        if (secondNode.hasNext()){
+                            secondNode.getNext().setPrevious(secondNode);
+                        }
+                        if (secondNode.hasPrevious()){
+                            secondNode.getPrevious().setNext(secondNode);
+                        }
 
-    public void setTail(Node2 tail) {
-        this.tail = tail;
+
+                        firstNode.setNext(secondNodeNext);
+                        firstNode.setPrevious(secondNodePrev);
+                        if (firstNode.hasNext()){
+                            firstNode.getNext().setPrevious(firstNode);
+                        }
+                        if (firstNode.hasPrevious()){
+                            firstNode.getPrevious().setNext(firstNode);
+                        }
+
+                        if (!aux.hasNext()){
+                            this.tail = secondNode;
+                        }else if (!current.hasNext()) {
+                            this.tail = firstNode;
+                        }
+
+                        if (!aux.hasPrevious()){
+                            this.head = secondNode;
+                        }else if (!current.hasPrevious()) {
+                            this.head = firstNode;
+                        }
+                    }
+                    aux = aux.getNext();
+                }while (aux.hasNext() && !aux.equals(this.head));
+            }
+            current = current.getNext();
+        }while (current.hasNext() && !current.equals(this.head));
     }
 }

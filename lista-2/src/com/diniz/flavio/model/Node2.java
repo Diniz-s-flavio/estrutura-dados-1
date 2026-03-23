@@ -41,9 +41,9 @@ public class Node2 {
     }
 
     public boolean hasNext() {
-        return this.next == null;
+        return this.next != null;
     }
     public boolean hasPrevious() {
-        return this.previous == null;
+        return this.previous != null;
     }
 }
