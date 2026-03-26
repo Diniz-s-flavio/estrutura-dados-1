@@ -5,7 +5,11 @@ public class Main {
 
         AtividadesLista3 atividades = new AtividadesLista3();
 
+//        atividades.testarExercicio1();
+//        atividades.testarExercicio2();
+//        atividades.testarExercicio3();
+        atividades.testarExercicio4();
 //        atividades.testarExercicio6();
-        atividades.testarExercicio6_2();
+//        atividades.testarExercicio6_2();
     }
 }

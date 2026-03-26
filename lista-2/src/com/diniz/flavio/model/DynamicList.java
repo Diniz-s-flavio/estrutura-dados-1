@@ -134,7 +134,7 @@ public class DynamicList {
         }
         Node current = this.head.getNext();
         while (current != null) {
-            System.out.print(current + " - hasNext: "+current.hasNext() +(current.hasNext() ? ", ": ""));
+            System.out.print(current +(current.hasNext() ? ", ": "\n"));
             current = current.getNext();
         }
     }
@@ -168,6 +168,34 @@ public class DynamicList {
 
 
     //Listas 3
+
+    /** E4 - Faça um método para remover os n primeiros elementos de uma lista. O método deve
+    * retornar true se a remoção de todos os “n” elementos for concluída com sucesso, ou false
+    * caso a lista possua menos de “n” elementos (neste caso, nenhum elemento deve ser removido).
+    */
+    public boolean removeElements(int n){
+        if (this.isEmpty()) {
+            return false;
+        }
+
+        Node current =  this.getHead().getNext();
+        int listLength = 1;
+
+        while (current.hasNext()){
+            listLength++;
+            current = current.getNext();
+        }
+
+        if (listLength < n) {
+            return false;
+        }
+
+        for (int i = 0; i < n; i++) {
+            this.removeFirst();
+        }
+
+        return true;
+    }
 
     // E6 - Trocar as posições de dois itens na lista, sem alterar os itens em si, ou seja, apenas alterando os ponteiros.
     public void e6_changePositions(Node item1, Node item2) {
