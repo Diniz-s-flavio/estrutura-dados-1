@@ -110,4 +110,39 @@ public class StaticList {
         }
         return null;
     }
+
+    public void inverteItrens(){
+        if (firstIndex == lastIndex) {
+            System.out.println("lista vazia não a o queimverter");
+        }
+        for (int i = 0; i < lastIndex / 2; i++) {
+            Object temp = items[i];
+            items[i] = items[lastIndex - 1 - i];
+            items[lastIndex - 1 - i] = temp;
+        }
+    }
+
+    public Object[] getItems() {
+        return items;
+    }
+
+    public void setItems(Object[] items) {
+        this.items = items;
+    }
+
+    public int getFirstIndex() {
+        return firstIndex;
+    }
+
+    public void setFirstIndex(int firstIndex) {
+        this.firstIndex = firstIndex;
+    }
+
+    public int getLastIndex() {
+        return lastIndex;
+    }
+
+    public void setLastIndex(int lastIndex) {
+        this.lastIndex = lastIndex;
+    }
 }

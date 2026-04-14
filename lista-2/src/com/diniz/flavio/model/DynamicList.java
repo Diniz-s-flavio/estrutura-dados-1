@@ -236,4 +236,24 @@ public class DynamicList {
             this.tail = item2;
         }
     }
+
+    // 4 da prova
+    public Integer getDeep(Node no){
+        if (head == tail){
+            System.out.println("A lista está vazia.");
+            return null;
+        }
+        Node current = head;
+        int deep = 0;
+
+        while (current.getNext() != null){
+            if (current == no){
+                return deep;
+            }
+            current = current.getNext();
+            deep++;
+        }
+        System.out.println("O nó não foi encontrado na lista.");
+        return null;
+    }
 }

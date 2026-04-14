@@ -8,8 +8,12 @@ public class Main {
 //        atividades.testarExercicio1();
 //        atividades.testarExercicio2();
 //        atividades.testarExercicio3();
-        atividades.testarExercicio4();
+//        atividades.testarExercicio4();
 //        atividades.testarExercicio6();
 //        atividades.testarExercicio6_2();
+
+//        atividades.testarExercicio5_prova();
+//        atividades.testarExercicio6_prova();
+        atividades.testarExercicio2_prova();
     }
 }

@@ -13,7 +13,7 @@ public class DynamicQueue {
         return head;
     }
 
-    public void setHead(Node head) {
+    public void setHead(QueueNode head) {
         this.head = head;
     }
 
@@ -21,7 +21,7 @@ public class DynamicQueue {
         return tail;
     }
 
-    public void setTail(Node tail) {
+    public void setTail(QueueNode tail) {
         this.tail = tail;
     }
 
@@ -53,7 +53,7 @@ public class DynamicQueue {
 
     public Object pesquisa (Object chave) {
         this.throwExceptionIfEmpty();
-        Node current = head;
+        QueueNode current = head;
         while (current.getNext() != null ) {
             if (current.getNext().getItem().equals(chave))
                 return current.getNext().getItem();
@@ -67,7 +67,7 @@ public class DynamicQueue {
             System.out.println("A lista está vazia.");
             return;
         }
-        Node current = this.head;
+        QueueNode current = this.head;
         while (current != null) {
             System.out.print(current +(current.hasNext() ? ", ": "\n"));
             current = current.getNext();

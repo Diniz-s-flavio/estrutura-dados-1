@@ -1,9 +1,6 @@
 package com.diniz.flavio.service;
 
-import com.diniz.flavio.model.DynamicList;
-import com.diniz.flavio.model.DynamicList2;
-import com.diniz.flavio.model.Node;
-import com.diniz.flavio.model.Node2;
+import com.diniz.flavio.model.*;
 
 public class AtividadesLista3 {
 
@@ -221,5 +218,44 @@ public class AtividadesLista3 {
         list.addFirst(101);
 
         list.print();
+    }
+
+    public void testarExercicio5_prova() {
+        StaticList list = new StaticList(3);
+
+        list.addLast(5);
+        list.addLast(12);
+        list.addLast(7);
+
+        list.inverteItrens();
+        System.out.println("\n\nDepois de trocar as posições de 5 e 15:");
+
+        for (int i = 0; i < list.getItems().length; i++) {
+            System.out.println(list.getItems()[i]);
+        }
+    }
+
+    public void testarExercicio6_prova() {
+        CyrcularList list = new CyrcularList();
+
+        list.addLast(5);
+        list.addLast(12);
+        list.addLast(7);
+
+        System.out.println("Numero de elementos: "+ CyrcularList.countNodes(list));
+
+    }
+
+    public void testarExercicio2_prova() {
+        DynamicList list = new DynamicList();
+
+        list.addLast(5);
+        list.addLast(12);
+        list.addLast(7);
+        list.addLast(6);
+        list.addLast(1);
+
+        System.out.println("Numero de elementos: "+ list.getDeep(list.findNodeByKey(6)));
+
     }
 }
